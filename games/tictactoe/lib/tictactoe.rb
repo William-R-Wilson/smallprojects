@@ -36,9 +36,9 @@ class Game
 		@@turn += 1
 		puts "It is the turn of player " + (@@player+1).to_s
 		puts "What row do you want to update?"
-		row = gets.chomp.to_i
+		row = STDIN.gets.chomp.to_i
 		puts "What column do you want to update?"
-		column = gets.chomp.to_i
+		column = STDIN.gets.chomp.to_i
 		if @@player == 0
 			@board.update(row, column, @p1.sym)
 			@@player = 1
@@ -56,7 +56,7 @@ class Game
 			puts "It was a tie D:"
 		end
 		puts 'Do you want to start again?(yes/no)'
-		input = gets.chomp
+		input = STDIN.gets.chomp
 		if (input == 'no')
 			puts 'Bye bye'
 		elsif (input == 'yes')
@@ -77,7 +77,7 @@ class Game
 		def initialize()
 			@@players += 1
 			puts 'Enter player ' + @@players.to_s + ' name'
-			@name = gets.chomp
+			@name = STDIN.gets.chomp
 			@sym = @@symbols[@@players-1]
 		end
 
@@ -88,7 +88,7 @@ class Game
 	end
 
 
-	# Create, displays and updates the grid
+	#Create, displays and updates the grid
 	class Board
 		attr_reader :board, :empty_cell
 
@@ -115,9 +115,9 @@ class Game
 				if @board[row-1][cell-1] != @empty_cell
 					puts "This cell has something, try again! Put another row and column"
 					puts "What row do you want to update?"
-					row = gets.chomp.to_i
+					row = STDIN.gets.chomp.to_i
 					puts "What column do you want to update?"
-					cell = gets.chomp.to_i
+					cell = STDIN.gets.chomp.to_i
 					check = false
 				else	
 					@board[row-1][cell-1] = sym

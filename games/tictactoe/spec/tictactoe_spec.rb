@@ -1,7 +1,8 @@
-require "../lib/tictactoe"
+require "tictactoe"
+
 
 describe 'Tic Tac Toe' do 
-	let(:game) { Game.new }
+	game = Game.new
 	before(:each) do 
 		allow(game).to receive(:puts)
 		allow(game).to receive(:print)
